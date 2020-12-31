@@ -13,10 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-  $posts = App\Post::all();
-    return view('welcome',compact('posts'));
+Route::get('/','PagesController@home');
+
+
+
+
+Route::group(['prefix' => 'admin', 'namespace'=>'admin', 'middleware'=> 'auth' ], function(){
+    Route::get('/', 'AdminController@index')->name('admin');
+    Route::get('/post', 'PostController@index')->name('admin.post.index');
+    Route::get('/post/create', 'PostController@create')->name('admin.post.create');
+    Route::post('/post', 'PostController@store')->name('admin.post.store');
+
 });
-Route::get('/post', function () {
-    return App\Post::all();
-});
+
+Route::auth();

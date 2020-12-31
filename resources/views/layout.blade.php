@@ -9,7 +9,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>Zendero</title>
+	<title>{{config('app.name')}}</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/framework.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -33,7 +33,7 @@
 			</nav>
 		</div>
   </header>
-  
+
   <!-- Dynamic content -->
   @yield('content')
 	<section class="footer">
@@ -51,7 +51,7 @@
 				<div class="divider-2"></div>
 				<p>Nunc placerat dolor at lectus hendrerit dignissim. Ut tortor sem, consectetur nec hendrerit ut, ullamcorper ac odio. Donec viverra ligula at quam tincidunt imperdiet. Nulla mattis tincidunt auctor.</p>
 				<div class="divider-2" style="width: 80%;"></div>
-				<p>© 2017 - Zendero. All Rights Reserved. Designed & Developed by <span class="c-white">Agencia De La Web</span></p>
+				<p>© 2017 - {{config('app.name')}}. All Rights Reserved. Designed & Developed by <span class="c-white">Agencia De La Web</span></p>
 				<ul class="social-media-footer list-unstyled">
 					<li><a href="#" class="fb"></a></li>
 					<li><a href="#" class="tw"></a></li>
@@ -61,7 +61,7 @@
 			</div>
 		</footer>
 	</section>
-    
+
     <script src="" async defer></script>
   </body>
 </html>
