@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class PagesController extends Controller
 {
     public function  home() {
-        $posts = Post::all();
+
+    $posts = Post::published()->get();
     return view('welcome',compact('posts'));
     }
 }

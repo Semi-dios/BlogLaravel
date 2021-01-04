@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
+use Carbon\Carbon;
 class Post extends Model
 {
     protected  $guarded = [];
@@ -15,5 +15,11 @@ class Post extends Model
     }
     public function tags() {
         return $this->BelongsToMany(Tag::class);
+    }
+    public function scopePublished($query) {
+        $query = Post::whereNotNull('published_at')
+        ->where('published_at','<=', Carbon::Now())
+        ->latest('published_at');
+
     }
 }
